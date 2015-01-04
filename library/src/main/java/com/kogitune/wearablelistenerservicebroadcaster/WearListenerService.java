@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class WearListenerService extends WearableListenerService {
 
-    private static final String TAG = "WearListenerService";
+    private static final String TAG = "Broadcaster/WearListenerService";
 
     public static final String MESSAGE_EVENT_PATH_KEY = "MESSAGE_EVENT_PATH_KEY";
     public static final String MESSAGE_EVENT_DATA_KEY = "MESSAGE_EVENT_DATA_KEY";
@@ -35,7 +35,7 @@ public class WearListenerService extends WearableListenerService {
     public void onMessageReceived(MessageEvent messageEvent) {
         super.onMessageReceived(messageEvent);
         if (BuildConfig.DEBUG) {
-            Log.d(TAG, "WearableListenerService/onMessageReceived");
+            Log.d(TAG, "onMessageReceived");
         }
 
         final Intent intent = new Intent();
