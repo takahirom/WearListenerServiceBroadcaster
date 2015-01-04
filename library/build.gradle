@@ -1,4 +1,24 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.0'
+        classpath 'com.github.dcendents:android-maven-plugin:1.2'
+    }
+}
+
+repositories {
+    jcenter()
+}
+
+group = 'com.kogitune'
+version = '0.0.1'
+
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
 
 android {
     compileSdkVersion 21
@@ -23,17 +43,52 @@ dependencies {
     compile 'com.google.android.gms:play-services-wearable:6.1.71'
 }
 
-def repo = new File(rootDir, "repository")
 
 apply plugin: 'maven'
+apply plugin: 'maven-publish'
 
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            repository url: "file://${repo.absolutePath}"
-            pom.version = '0.0.1'
-            pom.groupId = 'com.kogitune'
-            pom.artifactId = 'wearable-listener-service-broadcaster'
-        }
+
+def siteUrl = 'https://github.com/takahirom/WearableListenerServiceBroadcaster'
+def gitUrl = 'https://github.com/takahirom/WearableListenerServiceBroadcaster.git'
+bintray {
+    user = "takahirom"
+    key = "SECRET"
+
+    configurations = ['archives'] //When uploading configuration files
+    publish = true
+    publications = ['mavenJava']
+    pkg {
+        repo = 'maven'
+        name = 'WearableListenerServiceBroadcaster'
+        desc = 'In Android, Only one WearableListenerService may be specified for an application. So Broadcast message event.'
+        websiteUrl = siteUrl
+        issueTrackerUrl = 'https://github.com/takahirom/WearableListenerServiceBroadcaster/issues'
+        vcsUrl = gitUrl
+        licenses = ['Apache-2.0']
+        labels = ['aar', 'android', 'wear']
+        publicDownloadNumbers = true
     }
 }
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
