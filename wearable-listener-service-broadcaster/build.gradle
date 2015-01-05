@@ -13,7 +13,7 @@ repositories {
 }
 
 group = 'com.kogitune'
-version = '0.0.1'
+version = '0.0.2'
 
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
@@ -56,7 +56,6 @@ bintray {
 
     configurations = ['archives'] //When uploading configuration files
     publish = true
-    publications = ['mavenJava']
     pkg {
         repo = 'maven'
         name = 'WearableListenerServiceBroadcaster'

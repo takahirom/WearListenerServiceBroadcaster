@@ -1,2 +1,2 @@
 rootProject.name = "WearableListenerServiceBroadcaster"
-include ':library'
+include ':wearable-listener-service-broadcaster'
