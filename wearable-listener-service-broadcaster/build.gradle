@@ -68,6 +68,16 @@ bintray {
         publicDownloadNumbers = true
     }
 }
+
+android.libraryVariants
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifact bundleRelease
+        }
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
