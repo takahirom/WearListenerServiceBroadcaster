@@ -13,7 +13,7 @@ repositories {
 }
 
 group = 'com.kogitune'
-version = '0.0.2'
+version = '0.0.3'
 
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
@@ -48,8 +48,8 @@ apply plugin: 'maven'
 apply plugin: 'maven-publish'
 
 
-def siteUrl = 'https://github.com/takahirom/WearableListenerServiceBroadcaster'
-def gitUrl = 'https://github.com/takahirom/WearableListenerServiceBroadcaster.git'
+def siteUrl = 'https://github.com/takahirom/WearListenerServiceBroadcaster'
+def gitUrl = 'https://github.com/takahirom/WearListenerServiceBroadcaster.git'
 bintray {
     user = "takahirom"
     key = file("key").text
@@ -58,10 +58,10 @@ bintray {
     publish = true
     pkg {
         repo = 'maven'
-        name = 'WearableListenerServiceBroadcaster'
+        name = 'WearListenerServiceBroadcaster'
         desc = 'In Android, Only one WearableListenerService may be specified for an application. So Broadcast message event.'
         websiteUrl = siteUrl
-        issueTrackerUrl = 'https://github.com/takahirom/WearableListenerServiceBroadcaster/issues'
+        issueTrackerUrl = 'https://github.com/takahirom/WearListenerServiceBroadcaster/issues'
         vcsUrl = gitUrl
         licenses = ['Apache-2.0']
         labels = ['aar', 'android', 'wear']

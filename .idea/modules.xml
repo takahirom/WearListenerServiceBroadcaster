@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/WearableListenerServiceBroadcaster.iml" filepath="$PROJECT_DIR$/WearableListenerServiceBroadcaster.iml" />
-      <module fileurl="file://$PROJECT_DIR$/wearable-listener-service-broadcaster/wearable-listener-service-broadcaster.iml" filepath="$PROJECT_DIR$/wearable-listener-service-broadcaster/wearable-listener-service-broadcaster.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wear-listener-service-broadcaster/wear-listener-service-broadcaster.iml" filepath="$PROJECT_DIR$/wear-listener-service-broadcaster/wear-listener-service-broadcaster.iml" />
     </modules>
   </component>
 </project>
