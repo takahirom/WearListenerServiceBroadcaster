@@ -52,7 +52,9 @@ def siteUrl = 'https://github.com/takahirom/WearListenerServiceBroadcaster'
 def gitUrl = 'https://github.com/takahirom/WearListenerServiceBroadcaster.git'
 bintray {
     user = "takahirom"
-    key = file("key").text
+    if (file("key").exists()) {
+        key = file("key").text
+    }
 
     configurations = ['archives'] //When uploading configuration files
     publish = true
