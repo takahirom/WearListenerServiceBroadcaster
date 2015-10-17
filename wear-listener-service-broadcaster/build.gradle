@@ -13,7 +13,7 @@ repositories {
 }
 
 group = 'com.kogitune'
-version = '0.0.3'
+version = '0.0.4'
 
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
@@ -26,7 +26,7 @@ android {
 
     defaultConfig {
         targetSdkVersion 21
-        minSdkVersion 13
+        minSdkVersion 9
         versionCode 1
         versionName "1.0"
     }
@@ -40,7 +40,7 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.google.android.gms:play-services-wearable:6.1.71'
+    compile 'com.google.android.gms:play-services-wearable:+'
 }
 
 
@@ -75,9 +75,12 @@ android.libraryVariants
 publishing {
     publications {
         maven(MavenPublication) {
-            artifact bundleRelease
+//            artifact bundleRelease
         }
     }
+}
+afterEvaluate {
+    publishing.publications.maven.artifact(bundleRelease)
 }
 
 dependencies {
